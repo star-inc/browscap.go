@@ -16,9 +16,9 @@ const (
 	TestIniFile             = "/tmp/browscap.ini"
 	TestMacOsxChromeAgent   = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36"
 	TestPixel6ChromeAgent   = "Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.74 Mobile Safari/537.36"
-	TestIphoneSafariAgent   = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"
-	TestIphone12SafariAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1"
-	TestIphone12ChromeAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/95.0.4638.50 Mobile/15E148 Safari/604.1"
+	TestIPhoneSafariAgent   = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"
+	TestIPhone12SafariAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1"
+	TestIPhone12ChromeAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/95.0.4638.50 Mobile/15E148 Safari/604.1"
 )
 
 func TestMain(m *testing.M) {
@@ -81,7 +81,7 @@ func TestGetBrowserOnPixel6Chrome(t *testing.T) {
 }
 
 func TestGetBrowserOnIPhoneSafari(t *testing.T) {
-	if browser, ok := GetBrowser(TestIphoneSafariAgent); !ok {
+	if browser, ok := GetBrowser(TestIPhoneSafariAgent); !ok {
 		t.Error("Browser not found")
 	} else if browser.DeviceName != "iPhone" {
 		t.Errorf("Expected iPhone but got %q", browser.DeviceName)
@@ -95,7 +95,7 @@ func TestGetBrowserOnIPhoneSafari(t *testing.T) {
 }
 
 func TestGetBrowserOnIPhone12Safari(t *testing.T) {
-	if browser, ok := GetBrowser(TestIphone12SafariAgent); !ok {
+	if browser, ok := GetBrowser(TestIPhone12SafariAgent); !ok {
 		t.Error("Browser not found")
 	} else if browser.DeviceName != "iPhone" {
 		t.Errorf("Expected iPhone but got %q", browser.DeviceName)
@@ -109,7 +109,7 @@ func TestGetBrowserOnIPhone12Safari(t *testing.T) {
 }
 
 func TestGetBrowserOnIPhone12Chrome(t *testing.T) {
-	if browser, ok := GetBrowser(TestIphone12ChromeAgent); !ok {
+	if browser, ok := GetBrowser(TestIPhone12ChromeAgent); !ok {
 		t.Error("Browser not found")
 	} else if browser.DeviceName != "iPhone" {
 		t.Errorf("Expected iPhone but got %q", browser.DeviceName)
