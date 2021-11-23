@@ -4,6 +4,7 @@
 package browscap_go
 
 import (
+	"errors"
 	"io/ioutil"
 	"log"
 	"os"
@@ -21,8 +22,10 @@ const (
 )
 
 func TestMain(m *testing.M) {
-	if err := InitBrowsCap(TestIniFile, false); err != nil {
-		log.Panicln(err)
+	if _, err := os.Stat(TestIniFile); !errors.Is(err, os.ErrNotExist) {
+		if err := InitBrowsCap(TestIniFile, false); err != nil {
+			log.Panicln(err)
+		}
 	}
 
 	currentVersion := InitializedVersion()
