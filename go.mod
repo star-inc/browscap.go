@@ -1,3 +1,3 @@
 module github.com/star-inc/browscap.go
 
-go 1.17
+go 1.27.3
